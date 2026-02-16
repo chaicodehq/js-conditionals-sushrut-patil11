@@ -32,4 +32,67 @@
  */
 export function getSeasonActivity(month, temperature) {
   // Your code here
+  let inferredSeason="";
+  let inferredActivity="";
+  if(month<=0 || month>12){
+    return null;
+  }
+
+
+  if(month==12 ||month==1 ||month==2){
+    inferredSeason="Winter";
+  }
+  if(month==3 ||month==4 ||month==5){
+    inferredSeason="Spring";
+  }
+  if(month==6 ||month==7 ||month==8){
+    inferredSeason="Summer";
+  }
+  if(month==9 ||month==10 ||month==11){
+    inferredSeason="Autumn";
+  }
+
+if(inferredSeason=="Winter"){
+  if(temperature<0){
+    inferredActivity="skiing";
+  }
+  if(temperature>=0){
+    inferredActivity="ice skating";
+  }
+}
+
+
+if(inferredSeason=="Spring"){
+  if(temperature>20){
+    inferredActivity="hiking";
+  }
+  if(temperature<=20){
+    inferredActivity="museum visit";
+  }
+}
+
+if(inferredSeason=="Summer"){
+  if(temperature>35){
+    inferredActivity="swimming";
+  }
+  if(temperature<=35){
+    inferredActivity="cycling";
+  }
+}
+
+
+if(inferredSeason=="Autumn"){
+  if(temperature>15){
+    inferredActivity="nature walk";
+  }
+  if(temperature<=15){
+    inferredActivity="reading at a cafe";
+  }
+}
+
+return {season:inferredSeason,activity:inferredActivity};
+
+
+
+
 }
